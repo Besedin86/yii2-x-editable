@@ -51,9 +51,13 @@ class XEditableConfig extends \yii\base\widget
 			$this->defaults = array();
 		if(empty($this->defaults['mode']))
 			$this->defaults['mode'] = $this->mode;
+        if(empty($this->defaults['form']))
+            $this->defaults['form'] = $this->form;
 
 		$defaults = Json::encode($this->defaults);
-		XEditableAsset::register($this->view);
+        XEditableJqueryuiAsset::register($this->view);
+        /*$assetClass = 'XEditable'.ucfirst($this->defaults['form']).'Asset';
+        $assetClass::register($this->view);*/
 
 		$this->view->registerJs("
 		if($.fn.editable)
