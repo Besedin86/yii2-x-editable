@@ -35,7 +35,7 @@ class XEditableJqueryuiAsset extends XEditableAsset
         'yii\jui\DialogAsset',
         'yii\jui\DatePickerAsset',
         'yii\jui\DatePickerRegionalAsset',
-        'yii\jui\AutocompleteAsset',
+        'yii\jui\AutoCompleteAsset',
         'yii\jui\AccordionAsset',
         'yii\jui\MenuAsset',
         'yii\jui\SelectableAsset',
