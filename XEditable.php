@@ -298,6 +298,15 @@ class XEditable extends \yii\base\Widget
 	 */
 	public $url = null;
 
+
+    /**
+     * @see Xeditable
+     * @var string
+     * CSRF Token variable
+     */
+
+    public $_csrf = '';
+
 	/**
 	 * @see Xeditable
 	 * @var function
@@ -423,6 +432,7 @@ class XEditable extends \yii\base\Widget
 	public function init()
 	{
 		parent::init();
+        $this->_csrf = \Yii::$app->request->getCsrfToken();
 		$this->registerAssets();
 	}
 
@@ -508,6 +518,7 @@ class XEditable extends \yii\base\Widget
 			'id' => $this->id,
 			'type' => $this->type,
 			'url' => $this->url,
+            '_csrf' => $this->_csrf,
 			'placement' => $this->placement,
 			'emptytext' => $this->emptytext,
 			'showbuttons' => $this->showbuttons,
@@ -527,6 +538,7 @@ class XEditable extends \yii\base\Widget
 				'url' => $this->url,
 				'value' => $this->model->$name,
 				'pk' => $this->model->id,
+                '_csrf' => $this->_csrf
 			];
 
 			$this->options = ArrayHelper::merge(
