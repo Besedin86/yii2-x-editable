@@ -587,7 +587,7 @@ class XEditable extends \yii\base\Widget
 		if ($model->validate()){
 			$model->update();
 		}else{
-			VarDumper::dump($model->getErrors(),10);
+            echo $model->getFirstError($name);
 		}
 	}
 
