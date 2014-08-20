@@ -574,12 +574,7 @@ class XEditable extends \yii\base\Widget
 		if($model===null)
 			throw new NotFoundHttpException();
 		if(!is_array($value)){
-			if (strtotime($value))
-			{
-				$model->$name = strtotime($value);
-			}else{
-				$model->$name = $value;
-			}
+			$model->$name = $value;
 		}else{
 			$model->$name = implode(',', $value);
 		}
